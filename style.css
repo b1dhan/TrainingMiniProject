@@ -152,6 +152,10 @@ nav {
     object-fit: cover;
 }
 
+.resume-image-container{
+    text-align: center;
+}
+
 .main-container .content {
     color: white;
     width: 65%;
