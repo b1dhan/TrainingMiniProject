@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Bidhan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                Bidhan Sen Oli
+            </div>
+            <div class="links">
+                <div class="link"><a href="index.html">Home</a></div>
+                <div class="link"><a href="#">About</a></div>
+                <div class="link"><a href="resume.html" target="_blank">Resume</a></div>
+                <div class="link contact-btn"><a href="contact.html" target="_blank" >Contact Me</a></div>
+            </div>
+        </div>
+    </nav>
+    
+        <div class="contact-form-container">
+            <h1>Contact Me</h1>
+            <form id="contact-form" action="" method="GET" class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Your Phone Number" required>
+
+                <label for="query">Queries?</label>
+                <textarea id="query" name="query" rows="4" placeholder="Your Queries" required></textarea>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const nameField = contactForm.elements['name'];
+        const phoneField = contactForm.elements['phone'];
+        const queryField = contactForm.elements['query'];  
+
+        contactForm.addEventListener('submit', function(event) {
+            const namePattern = /^[A-Za-z\s]+$/;
+            if (!namePattern.test(nameField.value)) {
+                alert("Name must contain letters only.");
+                event.preventDefault(); 
+                return;
+            }
+
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phoneField.value)) {
+                alert("Phone number must contain exactly 10 digits.");
+                event.preventDefault(); 
+            }
+
+            if (queryField.value.length < 5) {
+                alert("Queries should be at least 5 characters long.");
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>
